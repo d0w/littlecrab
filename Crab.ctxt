@@ -2,9 +2,11 @@
 comment0.target=Crab
 comment0.text=\r\n\ This\ class\ defines\ a\ crab.\ Crabs\ live\ on\ the\ beach.\r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=void\ scoreboard()
 comment2.params=
-comment2.target=void\ eat()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ moveAndTurn()
-numComments=4
+comment3.target=void\ eat()
+comment4.params=
+comment4.target=void\ moveAndTurn()
+numComments=5

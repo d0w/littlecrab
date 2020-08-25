@@ -5,17 +5,26 @@ import greenfoot.*;
  */
 public class Crab extends Actor
 {
+    int score = 0;
+    public void scoreboard() {
+        //displays text for scoreboard
+        getWorld().showText("Score: " + String.valueOf(score), 100, 20);
+    }
+
+    
     public void act()
     {
         // Add your action code here
         moveAndTurn();
         eat();
+        scoreboard();
     }
-    
+
     public void eat() {
         //method to make crab "eat" worms
         if(isTouching(Worm.class)) {
             removeTouching(Worm.class);
+            score++;
         }
     }
 
@@ -28,9 +37,8 @@ public class Crab extends Actor
             turnTowards(280, 280);
         }
 
-
         if (Greenfoot.isKeyDown("right")) {
-            move(4);
+            move(5);
             if(random < 20) {
                 turn(4);
             } 
@@ -40,9 +48,9 @@ public class Crab extends Actor
                 turn(3);
             }
         }
-        
+
         if (Greenfoot.isKeyDown("left")) {
-             move(-4);
+            move(-5);
             if(random < 20) {
                 turn(2);
             } 

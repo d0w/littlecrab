@@ -48,6 +48,7 @@ public class Lobster extends Actor
     public void eat() {
         if (isTouching(Crab.class)) {
             removeTouching(Crab.class);
+            Greenfoot.playSound("au.wav");
         }
     }
     

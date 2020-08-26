@@ -48,13 +48,26 @@ public class Lobster extends Actor
     public void eat() {
         if (isTouching(Crab.class)) {
             removeTouching(Crab.class);
+            getWorld().showText("You Lose", 300, 300);
         }
+    }
+    
+    public void increaseDif() {
+        int score = Crab.returnScore();
+        if (score == 5) {
+            moveSpeed = 7;
+        }
+        else if (score == 10) {
+            moveSpeed = 10;
+        }
+        
     }
     
     public void act() 
     {
         moveAndTurn();
         eat();// Add your action code here.
+        increaseDif();
     }
 
   

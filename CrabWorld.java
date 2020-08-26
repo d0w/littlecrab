@@ -1,4 +1,5 @@
 import greenfoot.*;  // (Actor, World, Greenfoot, GreenfootImage)
+import java.util.*;
 
 public class CrabWorld extends World
 {
@@ -9,15 +10,24 @@ public class CrabWorld extends World
 
     int width = getWidth();
     int height = getHeight();
+    int difficulty = 15;
     public CrabWorld() 
     {
+
         super(560, 560, 1);
+
         makeCrabs();
         makeLobsters();
-        makeWorms();
+        makeButtons();
+        makeWorms(difficulty);
 
     }
-
+    
+    public void makeButtons() {
+        addObject(new Button(), 30, 530);
+        showText("Restart", 30, 530);
+    }
+    
     public void makeCrabs() {
         int width = getWidth();
         int height = getHeight();
@@ -25,17 +35,18 @@ public class CrabWorld extends World
     }
 
     public void makeLobsters() {
-        
+
         int x = Greenfoot.getRandomNumber(width);
         int y = Greenfoot.getRandomNumber(height);
         addObject(new Lobster(), x, y);
     }
-    
-    public void makeWorms() {
-        for (int i = 0; i < 10; i++) {
+
+    public void makeWorms(int number) {
+        for (int i = 0; i < number; i++) {
             int x = Greenfoot.getRandomNumber(width);
             int y = Greenfoot.getRandomNumber(height);
             addObject(new Worm(), x, y);
         }
     }
+
 }

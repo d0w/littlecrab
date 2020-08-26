@@ -1,23 +1,35 @@
 import greenfoot.*;
-
+import java.util.*;
 /**
  * This class defines a crab. Crabs live on the beach.
  */
 public class Crab extends Actor
 {
-    int score = 0;
+    public static int crabCount = 1;
+    public static int score = 0;
     public void scoreboard() {
         //displays text for scoreboard
         getWorld().showText("Score: " + String.valueOf(score), 100, 20);
     }
-
     
+    public void win() {
+        if (score == 15) {
+            getWorld().showText("You Win", 300, 300);
+        }
+    }
+
+    public static int returnScore() {
+        return score;
+    }
+
+
     public void act()
     {
         // Add your action code here
         moveAndTurn();
         eat();
         scoreboard();
+        win();
     }
 
     public void eat() {

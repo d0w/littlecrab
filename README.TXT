@@ -12,5 +12,5 @@ This scenario is discussed in detail in that book.
 
 Copyright (c) Michael Kölling.
 
-Adding Test Text
+Removed Text
 

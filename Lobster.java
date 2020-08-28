@@ -39,7 +39,7 @@ public class Lobster extends Actor
             moveSpeed = moveSpeed - 1;
 
         }
-        
+
         if (moveSpeed < 1) {
             moveSpeed = 4;
         }
@@ -47,15 +47,16 @@ public class Lobster extends Actor
 
     public void eat() {
         if (isTouching(Crab.class)) {
-            removeTouching(Crab.class);
-
-            getWorld().showText("You Lose", 300, 300);
-
+            Crab.lives--;
             Greenfoot.playSound("au.wav");
-
+            if (Crab.lives <= 0){
+                getWorld().showText("You Lose", 300, 300);
+            }
+            act();
         }
     }
-    
+
+
     public void increaseDif() {
         int score = Crab.returnScore();
         if (score == 5) {
@@ -64,9 +65,9 @@ public class Lobster extends Actor
         else if (score == 10) {
             moveSpeed = 10;
         }
-        
+
     }
-    
+
     public void act() 
     {
         moveAndTurn();
@@ -74,5 +75,4 @@ public class Lobster extends Actor
         increaseDif();
     }
 
-  
 }

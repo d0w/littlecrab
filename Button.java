@@ -18,6 +18,7 @@ public class Button extends Actor
         if (Greenfoot.mousePressed(this)) {
             Greenfoot.setWorld(new CrabWorld());
             Crab.score = 0;
+            Crab.lives = 3;
         }
     }    
 }

@@ -8,11 +8,12 @@ public class Crab extends Actor
     public static int crabCount = 1;
     public static int score = 0;
     public int value = 4;
+    public static int lives = 3;
     public void scoreboard() {
         //displays text for scoreboard
-        getWorld().showText("Score: " + String.valueOf(score), 100, 20);
+        getWorld().showText("Score: " + String.valueOf(score), 70, 20);
     }
-    
+
     public void win() {
         if (score == 15) {
             getWorld().showText("You Win", 300, 300);
@@ -23,13 +24,23 @@ public class Crab extends Actor
         return score;
     }
 
-
+    public void lifeCounter() 
+    {
+        //displays text for lives counter
+        getWorld().showText("Lives: " + String.valueOf(lives), 200, 20);
+    }
+    
+    public static int returnLives() {
+        return Crab.lives;
+    }
+    
     public void act()
     {
         // Add your action code here
         moveAndTurn(value);
         eat();
         scoreboard();
+        lifeCounter();
         win();
         eatAnt();
     }
@@ -42,7 +53,7 @@ public class Crab extends Actor
             Greenfoot.playSound("slurp.wav");
         }
     }
-    
+
     public void eatAnt() {
         //method to make crab eat ants
         if (isTouching(Ant.class)) {

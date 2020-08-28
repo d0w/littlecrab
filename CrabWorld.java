@@ -34,6 +34,7 @@ public class CrabWorld extends World
         int height = getHeight();
         addObject(new Crab(), 280, 280);
     }
+    
 
     public void makeAnts(int number) {
 
